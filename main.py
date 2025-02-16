@@ -10,7 +10,7 @@ app = Flask(__name__)
 CORS(app) 
 
 # Load the trained YOLOv8 model 
-MODEL_PATH = "D:/gradproject/image_recognition/image_classification/data/runs/classify/train/weights/best.pt"  
+MODEL_PATH = "static/weights/best.pt"  
 model = YOLO(MODEL_PATH)
 
 # Dictionary storing descriptions for each king/queen
