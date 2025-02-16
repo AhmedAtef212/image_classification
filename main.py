@@ -1,3 +1,4 @@
+import os
 from flask import Flask, request, Response
 from flask_cors import CORS
 import torch
@@ -10,7 +11,7 @@ app = Flask(__name__)
 CORS(app) 
 
 # Load the trained YOLOv8 model 
-MODEL_PATH = "static/weights/best.pt"  
+MODEL_PATH = os.path.join(os.getcwd(), "static", "weights", "best.pt")
 model = YOLO(MODEL_PATH)
 
 # Dictionary storing descriptions for each king/queen
@@ -54,7 +55,8 @@ def predict():
     results = model(img)
     
     # Get the predicted class
-    pred_class = results[0].probs.top1  
+    #pred_class = results[0].probs.top1 
+    pred_class = results[0].probs.top1 if hasattr(results[0], "probs") else None 
     class_names = model.names  
     predicted_king = class_names[pred_class]
 
