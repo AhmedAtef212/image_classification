@@ -1,0 +1,65 @@
+from ultralytics import YOLO
+
+# Load a model
+
+model = YOLO("yolov8s-cls.pt")  
+
+# Train the model
+results = model.train(data="D:/gradproject/image_recognition/image_classification/data", epochs=50, imgsz=64)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
